@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Morning plans</title>
+  </head>
+  <body>
+    <h1>Hello, mister!</h1>
+    <form action="/index" method="post">
+        <p>
+            <b>Commit your work:</b><br>
+            <input type="text" size="8" name="ticket">
+            <input type="text" size="40" name="plans">
+        </p>
+        <p><input type="submit" value="add to plans"></p>
+        <h3>Read before post:</h3>
+        <p>
+        {% for item in plans %}
+            {{ item['ticket'] }} - {{ item['comment'] }} <br>
+        {% endfor %}
+        </p>
+    </form>
+    <form action="/slack" method="post">
+        <p><input type="submit" value="send to slack"></p>
+        <p>{{ response }}</p>
+    </form>
+  </body>
+</html>
+
